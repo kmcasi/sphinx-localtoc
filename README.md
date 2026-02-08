@@ -7,6 +7,51 @@ This Sphinx extension enhances the local Table of Contents (ToC) by adding objec
 It makes it easier for users to navigate complex documentation by categorizing and visualizing object types 
 in a structured, interactive way.
 
+## Preview
+
+<table>
+  <tr>
+    <td style="max-width: 40%;">
+      <img
+        src="https://raw.githubusercontent.com/kmcasi/sphinx-localtoc/refs/heads/main/images/DefaultFuro.jpg"
+        alt="Default local ToC with Furo"
+      />
+    </td>
+    <td style="max-width: 60%;">
+      <h3>Default configurations</h3>
+      <p>
+        The image on the left shows the default configuration of this extension
+        using the <strong><u>standard</u> Furo dark theme</strong>.
+      </p>
+      <p>
+        Object type annotations and dropdown controls are enabled, providing
+        a compact and navigable local Table of Contents for API-heavy pages.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td style="max-width: 40%;">
+      <img
+        src="https://raw.githubusercontent.com/kmcasi/sphinx-localtoc/refs/heads/main/images/CustomFuro.jpg"
+        alt="Default local ToC with Furo"
+      />
+    </td>
+    <td style="max-width: 60%;">
+      <h3>Customized</h3>
+      <p>
+        The image on the left shows a customized configuration of this extension using the 
+        <strong>Furo dark theme</strong>.
+      </p>
+      <p>The title area shown above the Table of Contents is not managed by this extension.</p>
+      <p>
+        All visual changes were made using <strong>CSS only</strong>, combined with the configuration option 
+        <code>localtoc_dropdown_depth = 2</code> to increase the initial expansion depth.
+      </p>
+    </td>
+  </tr>
+</table>
+
+
 ## Features
 - **Object Type Annotations**: Automatically categorizes objects in the ToC like classes, methods, attributes, etc.
 - **Collapsible Dropdowns**: Adds dropdown buttons next to each object type, allowing users to collapse or expand nested items.

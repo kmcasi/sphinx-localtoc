@@ -13,7 +13,7 @@ from .localtoc_dropdown import setup_dropdown
 
 
 #// GLOBAL VARIABLES
-__version__ = "26.2.8"
+__version__ = "26.02.09"
 
 
 #// RUN

@@ -1,6 +1,6 @@
 # Local ToC – Sphinx extension
 
-# Sphinx Local Table of Contents Extension with Object Type Annotations and Dropdowns
+## Sphinx Local Table of Contents Extension with Object Type Annotations and Dropdowns
 
 This Sphinx extension enhances the local Table of Contents (ToC) by adding object type annotations 
 (such as methods, attributes, and classes) and providing collapsible dropdowns for each object. 
@@ -19,7 +19,7 @@ in a structured, interactive way.
 
 ## Installation
 ```bash
-pip install [NOT AVAILABLE]
+pip install sphinx-localtoc
 ```
 
 ## Usage

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sphinx-localtoc"
-version = "26.2.8"
+version = "26.02.09"
 description = "Sphinx extension that extends local ToC with object type annotation and dropdown buttons."
 readme = "README.md"
 requires-python = ">=3.12"
@@ -27,13 +27,13 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = ""
 Source = "https://github.com/kmcasi/sphinx-localtoc"
 Issues = "https://github.com/kmcasi/sphinx-localtoc/issues"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
 license-files = []
+include-package-data = true
 
 [tool.setuptools.packages.find]
 where = ["src"]

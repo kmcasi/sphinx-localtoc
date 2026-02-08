@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sphinx-localtoc"
+version = "26.2.8"
+description = "Sphinx extension that extends local ToC with object type annotation and dropdown buttons."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { file = "LICENSE" }
+authors = [{ name = "ASI" }]
+keywords = ["sphinx", "extension", "toc", "table of contents", "documentation", "object type"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: MIT License",
+  "Framework :: Sphinx",
+  "Framework :: Sphinx :: Extension",
+  "Intended Audience :: Developers",
+  "Topic :: Documentation",
+  "Topic :: Documentation :: Sphinx",
+]
+dependencies = [
+    "Sphinx>=9.1.0",
+    "beautifulsoup4>=4.14.3",
+]
+
+[project.urls]
+Homepage = ""
+Source = "https://github.com/kmcasi/sphinx-localtoc"
+Issues = "https://github.com/kmcasi/sphinx-localtoc/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+license-files = []
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,410 @@
+/* Default Local ToC styling */
+body {
+    --icon-slt-chevron-down: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.785 18.355C11.455 19.025 12.545 19.025 13.215 18.355L23.495 8.065C24.165 7.395 24.165 6.315 23.495 5.645C22.825 4.975 21.745 4.975 21.075 5.645L12.005 14.715L2.925 5.645C2.255 4.975 1.175 4.975 0.505 5.645C-0.165 6.315 -0.165 7.405 0.505 8.075L10.785 18.355Z"/></svg>');
+
+    --name-slt-obj-module: "mod";
+	--name-slt-obj-namespace: "nsp";
+	--name-slt-obj-program: "prog";
+	--name-slt-obj-class: "cls";
+	--name-slt-obj-exception: "expt";
+	--name-slt-obj-struct: "str";
+	--name-slt-obj-union: "uni";
+	--name-slt-obj-type: "type";
+	--name-slt-obj-concept: "con";
+	--name-slt-obj-template: "tmpl";
+	--name-slt-obj-alias: "als";
+	--name-slt-obj-enum: "enum";
+	--name-slt-obj-enumerator: var(--name-slt-obj-enum);
+	--name-slt-obj-function: "func";
+	--name-slt-obj-method: "meth";
+	--name-slt-obj-classmethod: var(--name-slt-obj-method);
+	--name-slt-obj-staticmethod: var(--name-slt-obj-method);
+	--name-slt-obj-operator: "opr";
+	--name-slt-obj-decorator: "dec";
+	--name-slt-obj-decoratormethod: var(--name-slt-obj-method);
+	--name-slt-obj-data: "data";
+	--name-slt-obj-var: "var";
+	--name-slt-obj-variable: var(--name-slt-obj-var);
+	--name-slt-obj-member: "mbr";
+	--name-slt-obj-attribute: "attr";
+	--name-slt-obj-property: "prop";
+	--name-slt-obj-macro: "mcr";
+	--name-slt-obj-directive: "dir";
+	--name-slt-obj-role: "role";
+	--name-slt-obj-label: "lbl";
+	--name-slt-obj-term: "term";
+	--name-slt-obj-glossary: "glos";
+	--name-slt-obj-citation: "cit";
+	--name-slt-obj-envvar: "env";
+	--name-slt-obj-option: "opt";
+	--name-slt-obj-cmdoption: "cmd";
+	--name-slt-obj-equation: "eqn";
+    
+    --color-slt-dropdown: 125, 133, 144;
+    --color-slt-dropdown--hover: 221, 229, 240;
+    --color-slt-obj-module: 110, 118, 129;
+	--color-slt-obj-namespace: var(--color-slt-obj-module);
+	--color-slt-obj-program: var(--color-slt-obj-module);
+	--color-slt-obj-class: 124, 184, 255;
+	--color-slt-obj-exception: var(--color-slt-obj-class);
+	--color-slt-obj-struct: var(--color-slt-obj-class);
+	--color-slt-obj-union: var(--color-slt-obj-class);
+	--color-slt-obj-type: var(--color-slt-obj-class);
+	--color-slt-obj-concept: var(--color-slt-obj-class);
+	--color-slt-obj-template: var(--color-slt-obj-class);
+	--color-slt-obj-alias: var(--color-slt-obj-class);
+	--color-slt-obj-enum: 158, 203, 255;
+	--color-slt-obj-enumerator: var(--color-slt-obj-enum);
+	--color-slt-obj-function: 210, 168, 255;
+	--color-slt-obj-method: 184, 160, 255;
+	--color-slt-obj-classmethod: var(--color-slt-obj-method);
+	--color-slt-obj-staticmethod: var(--color-slt-obj-method);
+	--color-slt-obj-operator: var(--color-slt-obj-function);
+	--color-slt-obj-decorator: var(--color-slt-obj-method);
+	--color-slt-obj-decoratormethod: var(--color-slt-obj-method);
+	--color-slt-obj-data: 138, 191, 136;
+	--color-slt-obj-var: var(--color-slt-obj-data);
+	--color-slt-obj-variable: var(--color-slt-obj-data);
+	--color-slt-obj-member: var(--color-slt-obj-data);
+	--color-slt-obj-attribute: var(--color-slt-obj-enum);
+	--color-slt-obj-property: var(--color-slt-obj-enum);
+	--color-slt-obj-macro: 227, 181, 119;
+	--color-slt-obj-directive: var(--color-slt-obj-macro);
+	--color-slt-obj-role: var(--color-slt-obj-macro);
+	--color-slt-obj-label: var(--color-slt-obj-macro);
+	--color-slt-obj-term: var(--color-slt-obj-macro);
+	--color-slt-obj-glossary: var(--color-slt-obj-macro);
+	--color-slt-obj-citation: var(--color-slt-obj-macro);
+	--color-slt-obj-envvar: var(--color-slt-obj-data);
+	--color-slt-obj-option: var(--color-slt-obj-macro);
+	--color-slt-obj-cmdoption: var(--color-slt-obj-macro);
+	--color-slt-obj-equation: 255, 202, 128;
+
+    --alpha-slt-obj-bg: 0.125;
+    --alpha-slt-dropdown-icon: 0.5;
+
+    --font-size-slt-type: 87%;
+    --font-weight-slt-type: 600;
+
+    --size-slt-dropdown: 1rem;
+    --space-slt-dropdown: 0.5rem;
+    --space-slt-type: 0.25rem;
+    --padding-slt-type: 0 0.25rem;
+
+    --border-radius-slt-type: 0.25rem;
+    --transform-slt-dropdown--closed: rotate(-90deg);
+
+    --mask-slt-dropdown: var(--icon-slt-chevron-down) no-repeat center / 90%;
+}
+
+/* Base shape */
+.slt-type {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    align-self: stretch;
+    line-height: 1;
+    border-radius: var(--border-radius-slt-type);
+    margin-right: var(--space-slt-type);
+    font-size: var(--font-size-slt-type);
+    font-weight: var(--font-weight-slt-type);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    padding: var(--padding-slt-type);
+}
+
+/* Dropdown system */
+.slt-dropdown {
+    display: none;
+}
+.slt-dropdown ~ ul {
+    display: block;
+}
+.slt-dropdown:checked ~ ul {
+    display: none;
+}
+.slt-dropdown:checked + a .slt-dropdown-icon {
+    transform: var(--transform-slt-dropdown--closed);
+}
+.slt-dropdown-icon {
+    display: inline-block;
+    vertical-align: middle;
+    height: var(--size-slt-dropdown);
+    width: var(--size-slt-dropdown);
+    background-color: rgba(var(--color-slt-dropdown), var(--alpha-slt-dropdown-icon));
+    cursor: pointer;
+    transition: transform 0.15s;
+    mask: var(--mask-slt-dropdown);
+    -webkit-mask: var(--mask-slt-dropdown);
+    margin-right: var(--space-slt-dropdown);
+}
+.slt-dropdown-icon:hover {
+    background-color: rgba(var(--color-slt-dropdown--hover), var(--alpha-slt-dropdown-icon));
+}
+/*.slt-dropdown-branch {}
+.slt-dropdown-depth {}*/
+.slt-dropdown-leaf {
+    margin-left: calc(var(--space-slt-dropdown) + var(--size-slt-dropdown));
+}
+
+/* Object type */
+slt-obj-module {
+    color: rgb(var(--color-slt-obj-module));
+    background-color: rgba(var(--color-slt-obj-module), var(--alpha-slt-obj-bg));
+}
+.slt-obj-module::before {
+    content: var(--name-slt-obj-module);
+}
+.slt-obj-namespace {
+    color: rgb(var(--color-slt-obj-namespace));
+    background-color: rgba(var(--color-slt-obj-namespace), var(--alpha-slt-obj-bg));
+}
+.slt-obj-namespace::before {
+    content: var(--name-slt-obj-namespace);
+}
+.slt-obj-program {
+    color: rgb(var(--color-slt-obj-program));
+    background-color: rgba(var(--color-slt-obj-program), var(--alpha-slt-obj-bg));
+}
+.slt-obj-program::before {
+    content: var(--name-slt-obj-program);
+}
+.slt-obj-class {
+    color: rgb(var(--color-slt-obj-class));
+    background-color: rgba(var(--color-slt-obj-class), var(--alpha-slt-obj-bg));
+}
+.slt-obj-class::before {
+    content: var(--name-slt-obj-class);
+}
+.slt-obj-exception {
+    color: rgb(var(--color-slt-obj-exception));
+    background-color: rgba(var(--color-slt-obj-exception), var(--alpha-slt-obj-bg));
+}
+.slt-obj-exception::before {
+    content: var(--name-slt-obj-exception);
+}
+.slt-obj-struct {
+    color: rgb(var(--color-slt-obj-struct));
+    background-color: rgba(var(--color-slt-obj-struct), var(--alpha-slt-obj-bg));
+}
+.slt-obj-struct::before {
+    content: var(--name-slt-obj-struct);
+}
+.slt-obj-union {
+    color: rgb(var(--color-slt-obj-union));
+    background-color: rgba(var(--color-slt-obj-union), var(--alpha-slt-obj-bg));
+}
+.slt-obj-union::before {
+    content: var(--name-slt-obj-union);
+}
+.slt-obj-type {
+    color: rgb(var(--color-slt-obj-type));
+    background-color: rgba(var(--color-slt-obj-type), var(--alpha-slt-obj-bg));
+}
+.slt-obj-type::before {
+    content: var(--name-slt-obj-type);
+}
+.slt-obj-concept {
+    color: rgb(var(--color-slt-obj-concept));
+    background-color: rgba(var(--color-slt-obj-concept), var(--alpha-slt-obj-bg));
+}
+.slt-obj-concept::before {
+    content: var(--name-slt-obj-concept);
+}
+.slt-obj-template {
+    color: rgb(var(--color-slt-obj-template));
+    background-color: rgba(var(--color-slt-obj-template), var(--alpha-slt-obj-bg));
+}
+.slt-obj-template::before {
+    content: var(--name-slt-obj-template);
+}
+.slt-obj-alias {
+    color: rgb(var(--color-slt-obj-alias));
+    background-color: rgba(var(--color-slt-obj-alias), var(--alpha-slt-obj-bg));
+}
+.slt-obj-alias::before {
+    content: var(--name-slt-obj-alias);
+}
+.slt-obj-enum {
+    color: rgb(var(--color-slt-obj-enum));
+    background-color: rgba(var(--color-slt-obj-enum), var(--alpha-slt-obj-bg));
+}
+.slt-obj-enum::before {
+    content: var(--name-slt-obj-enum);
+}
+.slt-obj-enumerator {
+    color: rgb(var(--color-slt-obj-enumerator));
+    background-color: rgba(var(--color-slt-obj-enumerator), var(--alpha-slt-obj-bg));
+}
+.slt-obj-enumerator::before {
+    content: var(--name-slt-obj-enumerator);
+}
+.slt-obj-function {
+    color: rgb(var(--color-slt-obj-function));
+    background-color: rgba(var(--color-slt-obj-function), var(--alpha-slt-obj-bg));
+}
+.slt-obj-function::before {
+    content: var(--name-slt-obj-function);
+}
+.slt-obj-method {
+    color: rgb(var(--color-slt-obj-method));
+    background-color: rgba(var(--color-slt-obj-method), var(--alpha-slt-obj-bg));
+}
+.slt-obj-method::before {
+    content: var(--name-slt-obj-method);
+}
+.slt-obj-classmethod {
+    color: rgb(var(--color-slt-obj-classmethod));
+    background-color: rgba(var(--color-slt-obj-classmethod), var(--alpha-slt-obj-bg));
+}
+.slt-obj-classmethod::before {
+    content: var(--name-slt-obj-classmethod);
+}
+.slt-obj-staticmethod {
+    color: rgb(var(--color-slt-obj-staticmethod));
+    background-color: rgba(var(--color-slt-obj-staticmethod), var(--alpha-slt-obj-bg));
+}
+.slt-obj-staticmethod::before {
+    content: var(--name-slt-obj-staticmethod);
+}
+.slt-obj-operator {
+    color: rgb(var(--color-slt-obj-operator));
+    background-color: rgba(var(--color-slt-obj-operator), var(--alpha-slt-obj-bg));
+}
+.slt-obj-operator::before {
+    content: var(--name-slt-obj-operator);
+}
+.slt-obj-decorator {
+    color: rgb(var(--color-slt-obj-decorator));
+    background-color: rgba(var(--color-slt-obj-decorator), var(--alpha-slt-obj-bg));
+}
+.slt-obj-decorator::before {
+    content: var(--name-slt-obj-decorator);
+}
+.slt-obj-decoratormethod {
+    color: rgb(var(--color-slt-obj-decoratormethod));
+    background-color: rgba(var(--color-slt-obj-decoratormethod), var(--alpha-slt-obj-bg));
+}
+.slt-obj-decoratormethod::before {
+    content: var(--name-slt-obj-decoratormethod);
+}
+.slt-obj-data {
+    color: rgb(var(--color-slt-obj-data));
+    background-color: rgba(var(--color-slt-obj-data), var(--alpha-slt-obj-bg));
+}
+.slt-obj-data::before {
+    content: var(--name-slt-obj-data);
+}
+.slt-obj-var {
+    color: rgb(var(--color-slt-obj-var));
+    background-color: rgba(var(--color-slt-obj-var), var(--alpha-slt-obj-bg));
+}
+.slt-obj-var::before {
+    content: var(--name-slt-obj-var);
+}
+.slt-obj-variable {
+    color: rgb(var(--color-slt-obj-variable));
+    background-color: rgba(var(--color-slt-obj-variable), var(--alpha-slt-obj-bg));
+}
+.slt-obj-variable::before {
+    content: var(--name-slt-obj-variable);
+}
+.slt-obj-member {
+    color: rgb(var(--color-slt-obj-member));
+    background-color: rgba(var(--color-slt-obj-member), var(--alpha-slt-obj-bg));
+}
+.slt-obj-member::before {
+    content: var(--name-slt-obj-member);
+}
+.slt-obj-attribute {
+    color: rgb(var(--color-slt-obj-attribute));
+    background-color: rgba(var(--color-slt-obj-attribute), var(--alpha-slt-obj-bg));
+}
+.slt-obj-attribute::before {
+    content: var(--name-slt-obj-attribute);
+}
+.slt-obj-property {
+    color: rgb(var(--color-slt-obj-property));
+    background-color: rgba(var(--color-slt-obj-property), var(--alpha-slt-obj-bg));
+}
+.slt-obj-property::before {
+    content: var(--name-slt-obj-property);
+}
+.slt-obj-macro {
+    color: rgb(var(--color-slt-obj-macro));
+    background-color: rgba(var(--color-slt-obj-macro), var(--alpha-slt-obj-bg));
+}
+.slt-obj-macro::before {
+    content: var(--name-slt-obj-macro);
+}
+.slt-obj-directive {
+    color: rgb(var(--color-slt-obj-directive));
+    background-color: rgba(var(--color-slt-obj-directive), var(--alpha-slt-obj-bg));
+}
+.slt-obj-directive::before {
+    content: var(--name-slt-obj-directive);
+}
+.slt-obj-role {
+    color: rgb(var(--color-slt-obj-role));
+    background-color: rgba(var(--color-slt-obj-role), var(--alpha-slt-obj-bg));
+}
+.slt-obj-role::before {
+    content: var(--name-slt-obj-role);
+}
+.slt-obj-label {
+    color: rgb(var(--color-slt-obj-label));
+    background-color: rgba(var(--color-slt-obj-label), var(--alpha-slt-obj-bg));
+}
+.slt-obj-label::before {
+    content: var(--name-slt-obj-label);
+}
+.slt-obj-term {
+    color: rgb(var(--color-slt-obj-term));
+    background-color: rgba(var(--color-slt-obj-term), var(--alpha-slt-obj-bg));
+}
+.slt-obj-term::before {
+    content: var(--name-slt-obj-term);
+}
+.slt-obj-glossary {
+    color: rgb(var(--color-slt-obj-glossary));
+    background-color: rgba(var(--color-slt-obj-glossary), var(--alpha-slt-obj-bg));
+}
+.slt-obj-glossary::before {
+    content: var(--name-slt-obj-glossary);
+}
+.slt-obj-citation {
+    color: rgb(var(--color-slt-obj-citation));
+    background-color: rgba(var(--color-slt-obj-citation), var(--alpha-slt-obj-bg));
+}
+.slt-obj-citation::before {
+    content: var(--name-slt-obj-citation);
+}
+.slt-obj-envvar {
+    color: rgb(var(--color-slt-obj-envvar));
+    background-color: rgba(var(--color-slt-obj-envvar), var(--alpha-slt-obj-bg));
+}
+.slt-obj-envvar::before {
+    content: var(--name-slt-obj-envvar);
+}
+.slt-obj-option {
+    color: rgb(var(--color-slt-obj-option));
+    background-color: rgba(var(--color-slt-obj-option), var(--alpha-slt-obj-bg));
+}
+.slt-obj-option::before {
+    content: var(--name-slt-obj-option);
+}
+.slt-obj-cmdoption {
+    color: rgb(var(--color-slt-obj-cmdoption));
+    background-color: rgba(var(--color-slt-obj-cmdoption), var(--alpha-slt-obj-bg));
+}
+.slt-obj-cmdoption::before {
+    content: var(--name-slt-obj-cmdoption);
+}
+.slt-obj-equation {
+    color: rgb(var(--color-slt-obj-equation));
+    background-color: rgba(var(--color-slt-obj-equation), var(--alpha-slt-obj-bg));
+}
+.slt-obj-equation::before {
+    content: var(--name-slt-obj-equation);
+}

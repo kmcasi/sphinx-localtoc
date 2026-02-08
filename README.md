@@ -11,13 +11,13 @@ in a structured, interactive way.
 
 <table>
   <tr>
-    <td style="max-width: 40%;">
+    <td width="256px">
       <img
         src="https://raw.githubusercontent.com/kmcasi/sphinx-localtoc/refs/heads/main/images/DefaultFuro.jpg"
         alt="Default local ToC with Furo"
       />
     </td>
-    <td style="max-width: 60%;">
+    <td>
       <h3>Default configurations</h3>
       <p>
         The image on the left shows the default configuration of this extension
@@ -30,19 +30,19 @@ in a structured, interactive way.
     </td>
   </tr>
   <tr>
-    <td style="max-width: 40%;">
+    <td width="256px">
       <img
         src="https://raw.githubusercontent.com/kmcasi/sphinx-localtoc/refs/heads/main/images/CustomFuro.jpg"
         alt="Default local ToC with Furo"
       />
     </td>
-    <td style="max-width: 60%;">
+    <td>
       <h3>Customized</h3>
       <p>
         The image on the left shows a customized configuration of this extension using the 
         <strong>Furo dark theme</strong>.
       </p>
-      <p>The title area shown above the Table of Contents is not managed by this extension.</p>
+      <small>The title area shown above the Table of Contents is not managed by this extension.</small>
       <p>
         All visual changes were made using <strong>CSS only</strong>, combined with the configuration option 
         <code>localtoc_dropdown_depth = 2</code> to increase the initial expansion depth.

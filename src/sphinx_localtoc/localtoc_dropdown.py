@@ -107,14 +107,14 @@ def _html_page_context(app: Sphinx, _pn: str, _tm: str, context: dict[str, str|N
     # No ToC in the context ➜ skip safely
     # noinspection PyBroadException
     try:
-        toc: str|None = context["toc"]
+        toc: str = context["toc"]
     except BaseException: return
 
     # Depth offset: skip the first N levels before applying dropdown logic
-    ltt_depth: int = max(app.config["localtoc_dropdown_depth"], 0)
+    slt_depth: int = max(app.config["localtoc_dropdown_depth"], 0)
 
     # Counter used to generate unique IDs for toggle inputs
-    ltt_index: int = 0
+    slt_index: int = 0
 
     # Parse the ToC HTML into a BeautifulSoup system for easier life
     soup: BeautifulSoup = BeautifulSoup(toc, "html.parser")
@@ -123,24 +123,24 @@ def _html_page_context(app: Sphinx, _pn: str, _tm: str, context: dict[str, str|N
     for depth, li, ul, has_depth in _walk_list(soup.find("ul")):
 
         # Apply dropdown logic after the configured offset
-        if depth >= ltt_depth:
+        if depth >= slt_depth:
 
             # Inject alignment class on the configured offset so starting depth branch items can be customized
-            if has_depth and depth == ltt_depth:
+            if has_depth and depth == slt_depth:
                 # Find the nearest ancestor <ul> (usually the parent)
                 parent_ul: Tag|None = li.find_parent("ul")
 
                 if parent_ul is not None:
                     parent_ul_classes: AttributeValueList = parent_ul.get_attribute_list("class")
 
-                    if "ltt-dropdown-branch" not in parent_ul_classes:
+                    if "slt-dropdown-branch" not in parent_ul_classes:
                         parent_ul_classes.append("slt-dropdown-branch")
                         parent_ul["class"] = parent_ul_classes
 
             # Case 1: this <li> has a nested <ul> ➜ inject dropdown toggle
             if ul is not None:
-                ltt_index += 1
-                ltt_id: str = f"slt-dropdown-{ltt_index}"
+                slt_index += 1
+                ltt_id: str = f"slt-dropdown-{slt_index}"
 
                 # Checkbox acts as the toggle state (CSS-driven, no JS)
                 tag_input = soup.new_tag(
@@ -175,7 +175,7 @@ def _html_page_context(app: Sphinx, _pn: str, _tm: str, context: dict[str, str|N
             # Case 2: this <li> do not have a nested <ul>, but at least one from the same depth level have it
             # Case 3: this is the end of this depth level, but the parent <li> was modified earlier
             # Case 2 & 3 ➜ inject alignment class so leaf items line up visually
-            elif has_depth or _previous_li_modified(li, "slt-dropdown", depth, ltt_depth):
+            elif has_depth or _previous_li_modified(li, "slt-dropdown", depth, slt_depth):
                 li["class"] = li.get("class", []) + ["slt-dropdown-leaf"]  # type: ignore[assignment]
                 
     # Replace the original ToC HTML with the modified version

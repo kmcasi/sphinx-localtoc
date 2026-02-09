@@ -119,13 +119,13 @@ The contents of the generated file depend on your project structure, but should 
 
 ```text
 #//|>-----------------------------------------------------------------------------------------------------------------<|
-#//| Debug Local ToC report for Sphinx extension
-#//| Project: KivyDK
-#//| Version: 0.1.0
+#//| Debug report for Sphinx extension
+#//| Local ToC: 26.2.9.2
+#//| Project: KivyDK 0.1.0
 #//|>-----------------------------------------------------------------------------------------------------------------<|
 
 #//|>--------------------------------------------------------<|
-#//| Used CSS classes: 6
+#//| Used default CSS classes: 6 from 6
 #//|>--------------------------------------------------------<|
 	• slt-dropdown        | <input> items used as checkbox for dropdown system
 	• slt-dropdown-branch | Starting depth branch for <ul> items
@@ -136,7 +136,7 @@ The contents of the generated file depend on your project structure, but should 
 
 
 #//|>--------------------------------------------------------<|
-#//| Used object type CSS classes: 7
+#//| Used object type CSS classes: 7 from 37
 #//|>--------------------------------------------------------<|
 	• slt-obj-attribute
 	• slt-obj-class
@@ -148,13 +148,13 @@ The contents of the generated file depend on your project structure, but should 
 
 
 #//|>--------------------------------------------------------<|
-#//| One domain used
+#//| One domain used from 7
 #//|>--------------------------------------------------------<|
 	• py   | Python script
 
 
 #//|>--------------------------------------------------------<|
-#//| Used object types: 7
+#//| Used object types: 7 from 51
 #//|>--------------------------------------------------------<|
 	• py   | attribute
 	• py   | class

@@ -11,6 +11,9 @@ from sphinx import addnodes
 from sphinx.application import Sphinx
 from sphinx.environment import BuildEnvironment
 
+from ._version import __version__
+from .tools.localtoc_css_generator import obj_types_amount
+
 
 #// LOGIC
 def _html_page_context(app: Sphinx, _pn: str, _tm: str, context: dict[str, str|None], doctree: nodes.document) -> None:
@@ -65,17 +68,12 @@ def _html_page_context(app: Sphinx, _pn: str, _tm: str, context: dict[str, str|N
 def _collect_info(app: Sphinx, doctree: nodes.document, _dn: str) -> None:
     """
     Extract structured information from all <desc> nodes in the doctree.
-
-    The result is a dictionary mapping object ID's to their Sphinx‑detected metadata (i.e.: "domain-type").
-
-    This structure is optimized for fast lookup and deletion during HTML rendering, where each ID is consumed once and
-    then removed to reduce iteration cost for large ToC's.
     """
     # Feature disabled ➜ nothing to do
     if not app.config["localtoc_type"]: return
 
     # Access the Sphinx build environment, which persists across all documents during the build.
-    # This set is consumed by the assistant CSS generator to create CSS classes for every new detected object type.
+    # This set is consumed by the `_debug_file` to create a list for every new detected object type and domain.
     debug_time: bool = app.config["localtoc_type_debug_file"].strip() != ""
     env: BuildEnvironment = app.builder.env
     if debug_time:
@@ -120,8 +118,6 @@ def _debug_file(app: Sphinx, exception: Exception|None) -> None:
 
     This file is useful during development to inspect which object types were detected in the current project,
     including their originating domains.
-
-    The output path may be relative (resolved against ``app.confdir``) or absolute, depending on the user configuration.
     """
 
     # Skip if the build failed
@@ -145,6 +141,7 @@ def _debug_file(app: Sphinx, exception: Exception|None) -> None:
 
     # Compute debug info's
     if len(object_types):
+        # The base CSS classes description
         align_base_css: str = "%-19.19s"
         base_css_classes: list[str] = [
             "%s | Common class for all object type items" % align_base_css % "slt-type",
@@ -154,6 +151,7 @@ def _debug_file(app: Sphinx, exception: Exception|None) -> None:
             "%s | Nested depth branch for <ul> items" % align_base_css % "slt-dropdown-depth",
             "%s | Last <li> items in the depth branch" % align_base_css % "slt-dropdown-leaf",
         ]
+        # A map of known supported domains
         domain_name: dict[str, str] = {
             "py": "Python script",
             "js": "Java script",
@@ -163,6 +161,7 @@ def _debug_file(app: Sphinx, exception: Exception|None) -> None:
             "std": "Standard",
             "math": "Math",
         }
+        # Detected values at runtime
         domains: set[str] = set()
         obj_types: set[str] = set()
         css_classes: set[str] = set()
@@ -170,9 +169,11 @@ def _debug_file(app: Sphinx, exception: Exception|None) -> None:
         for value in sorted(object_types):
             dot: tuple[str, str] = value.split("-", 1)
 
+            # Get the object type and the css generated class
             obj_types.add("%-4.4s | %s" % (dot[0], dot[1]))
             css_classes.add(f"slt-obj-{dot[1]}")
 
+            # Get the domain and provide the full name if is known to be supported
             if dot[0] in domain_name.keys():
                 domains.add("%-4.4s | %s" % (dot[0], domain_name[dot[0]]))
             else:
@@ -185,34 +186,43 @@ def _debug_file(app: Sphinx, exception: Exception|None) -> None:
                 "line-short": f"#//|>{"-" * 56}<|",
                 "prefix": "#//|"
             }
+            # Some header base on the project
             debug_title: list[str] = [
                 decorator["line"],
-                f"{decorator["prefix"]} Debug Local ToC report for Sphinx extension",
-                f"{decorator["prefix"]} Project: {getattr(app.config, "project", "<unknown project>")}",
-                f"{decorator["prefix"]} Version: {getattr(app.config, "version", "<no-version>")}",
+                f"{decorator["prefix"]} Debug report for Sphinx extension",
+                f"{decorator["prefix"]} Local ToC: {__version__}",
+                f"{decorator["prefix"]} Project: {getattr(app.config, "project", "<unknown project>")} "
+                f"{getattr(app.config, "version", "<no-version>")}",
                 decorator["line"]
             ]
             file.write("\n".join(debug_title))
 
+            # Write all the collected data
             for category, values in {
-                "CSS class|es": base_css_classes,
-                "object type CSS class|es": css_classes,
-                "domain|s": domains,
-                "object type|s": obj_types,
+                "default CSS class|es": [base_css_classes, len(base_css_classes)],
+                "object type CSS class|es": [css_classes, obj_types_amount],
+                "domain|s": [domains, len(domain_name)],
+                "object type|s": [obj_types, 51],  # Are at least 51 possible combinations...
             }.items():
-                category_amound: int = len(values)
+                # Small subtitle change base on the amount of items what will be listed
+                category_amound: int = len(values[0])
                 category_title: str = f"One {category.split("|")[0]} used"
 
                 if category_amound > 1:
                     category_title = f"Used {category.replace("|", "")}: {category_amound}"
 
-                file.write("\n\n{line}\n{prefix} {title}\n{line}".format(
-                    line=decorator["line-short"], prefix=decorator["prefix"], title=category_title)
+                # Write the subtitle
+                file.write("\n\n{line}\n{prefix} {title} from {supported}\n{line}".format(
+                        line=decorator["line-short"], prefix=decorator["prefix"],
+                        title=category_title, supported=values[1]
+                    )
                 )
 
-                for value in sorted(values):
+                # List all the values
+                for value in sorted(values[0]):
                     file.write(f"\n\t\u2022 {value}")
 
+                # End with a fresh new line
                 file.write("\n")
 
 

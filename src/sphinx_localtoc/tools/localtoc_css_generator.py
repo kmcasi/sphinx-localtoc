@@ -93,6 +93,7 @@ obj_types: dict[str, tuple[str, tuple[int, int, int]]] = {
     # -----------------
     "equation": ("eqn", (255, 202, 128)),
 }
+obj_types_amount: int = len(obj_types)
 
 
 #// LOGIC
@@ -221,6 +222,7 @@ body {
 /* Object type */
 $generate_classes$
 """
+    computed: str = template
     names: str = ""
     colors: str = ""
     classes: str = ""
@@ -230,12 +232,15 @@ $generate_classes$
         colors += _generate_color(key, value[1])
         classes += _generate_class(key)
 
-    computed: str = template.replace("$prefix$", prefix_main)
-    computed = computed.replace("$prefix_class$", prefix_class)
-    computed = computed.replace("$class_main$", name_class_main)
-    computed = computed.replace("$generate_names$", names[2:])
-    computed = computed.replace("$generate_colors$", colors[2:])
-    computed = computed.replace("$generate_classes$", classes[2:])
+    for key, value in {
+        "$prefix$": prefix_main,
+        "$prefix_class$": prefix_class,
+        "$class_main$": name_class_main,
+        "$generate_names$": names[2:],
+        "$generate_colors$": colors[2:],
+        "$generate_classes$": classes[2:],
+    }.items():
+        computed = computed.replace(key, value)
 
     return computed
 

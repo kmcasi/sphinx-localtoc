@@ -8,12 +8,9 @@ from importlib.resources import files
 from sphinx.application import Sphinx
 from sphinx.util.typing import ExtensionMetadata
 
+from ._version import __version__
 from .localtoc_type import setup_type
 from .localtoc_dropdown import setup_dropdown
-
-
-#// GLOBAL VARIABLES
-__version__ = "26.02.09"
 
 
 #// RUN
